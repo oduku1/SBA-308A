@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Higher or Lower</title>
+    <link rel="stylesheet" href="../css_files/main.css">
+    <script src="../js_files/main.js" defer type = "module"></script>
+</head>
+<body>
+    <h1 id="Title">Higher Or Lower</h1>
+
+
+    <div class="container">
+        <div class = "game-data">
+            <h3>Score: <span id="score">0</span></h3>
+            <h3>High Score: <span id="high-score">0</span></h3>
+            <h3 id = "result"></h3>
+        </div>
+
+        <div class="game-area">
+            <div class="anime1">
+                <img src="" alt="Anime 1" id="anime1-img" class="anime-img">
+                <h3>Rating: <span id="anime1-rating"></span></h3>
+            </div>
+        
+            <div id="circle"><h3>VS</h3></div>
+        
+            <div class="anime2">
+                <img src="" alt="Anime 2" id="anime2-img" class="anime-img">
+                <h3 class = "rating-box">Rating: <span id="anime2-rating"></span></h3>
+            </div>  
+        </div>
+        
+        <div class="controls">
+            <button id="higher-btn">Higher</button>  
+            <button id="lower-btn">Lower</button>      
+        </div>
+
+        <button class = "hidden" id="Play-Again">Play Again</button>
+    </div>
+</body>
+</html>
