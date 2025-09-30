@@ -1,4 +1,4 @@
-import { setAnime } from "./fetch.js";
+import { getRandomSafeAnime } from "./fetch.js";
 
 let score = 0; 
 let highscore = 0; 
@@ -20,7 +20,7 @@ const highscoreDisplay = document.getElementById("high-score");
 async function getRandomAnime(){
     let anime
     do{
-        anime = await setAnime()
+        anime = await getRandomSafeAnime()
     }while(anime.score == null);
     return anime
 }
@@ -73,9 +73,8 @@ function checkGuess(isHigher) {
             lowerButton.disabled = false
             higherButton.disabled = false
             initGame();
-        }, 1000); // shorter delay
-        lowerButton.disabled = true
-        higherButton.disabled = true
+        }, 1500); // shorter delay
+       
     
     } else {
         result.textContent = "WRONG ❌";
@@ -83,9 +82,13 @@ function checkGuess(isHigher) {
         scoreDisplay.textContent = score;
         // highscore stays as the max
         setTimeout(() => {
+            lowerButton.disabled = false
+            higherButton.disabled = false
             initGame();
-        }, 1000); // shorter delay
+        }, 1500); // shorter delay
     }
+    lowerButton.disabled = true
+    higherButton.disabled = true
 }
 
 initGame()
