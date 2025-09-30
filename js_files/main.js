@@ -27,13 +27,22 @@ async function getRandomAnime(){
 
 let anime1, anime2;
 
-async function initGame() {
-    // Fetch both animes at the same time
-    [anime1, anime2] = await Promise.all([getRandomAnime(), getRandomAnime()]);
+async function initGame(isFirstRound = false) {
+    if (isFirstRound) {
+        // First round: fetch both
+        [anime1, anime2] = await Promise.all([getRandomAnime(), getRandomAnime()]);
 
-    // Make sure they are not the same
-    while (anime2.mal_id === anime1.mal_id) {
+        while (anime2.mal_id === anime1.mal_id) {
+            anime2 = await getRandomAnime();
+        }
+    } else {
+        // After a guess: shift anime2 → anime1, and fetch new anime2
+        anime1 = anime2;
         anime2 = await getRandomAnime();
+
+        while (anime2.mal_id === anime1.mal_id) {
+            anime2 = await getRandomAnime();
+        }
     }
 
     console.log(anime1, anime2);
@@ -42,11 +51,10 @@ async function initGame() {
     anime1_Img.src = anime1.images.jpg.image_url;
     anime1_rating.textContent = anime1.score;
 
-    // Anime 2
+    // Anime 2 (hidden score)
     anime2_Img.src = anime2.images.jpg.image_url;
     anime2_rating.textContent = "?";
 
-    // Reset result display
     result.textContent = "";
 }
 
@@ -58,38 +66,37 @@ function checkGuess(isHigher) {
 
     // Reveal anime2 score
     anime2_rating.textContent = anime2.score;
-    
 
     if (correct) {
         score++;
         if (score > highscore) highscore = score;
 
-        scoreDisplay.textContent = score;       // DOM element showing score
-        highscoreDisplay.textContent = highscore; // DOM element showing highscore
+        scoreDisplay.textContent = score;
+        highscoreDisplay.textContent = highscore;
         result.textContent = "RIGHT ✅";
 
         setTimeout(() => {
-        
-            lowerButton.disabled = false
-            higherButton.disabled = false
-            initGame();
-        }, 1500); // shorter delay
-       
-    
+            lowerButton.disabled = false;
+            higherButton.disabled = false;
+            initGame(false); // fetch only new anime2
+        }, 1500);
     } else {
         result.textContent = "WRONG ❌";
         score = 0;
         scoreDisplay.textContent = score;
-        // highscore stays as the max
+
         setTimeout(() => {
-            lowerButton.disabled = false
-            higherButton.disabled = false
-            initGame();
-        }, 1500); // shorter delay
+            lowerButton.disabled = false;
+            higherButton.disabled = false;
+            initGame(true); // restart with two new animes
+        }, 1500);
     }
-    lowerButton.disabled = true
-    higherButton.disabled = true
+
+    lowerButton.disabled = true;
+    higherButton.disabled = true;
 }
+
+
 
 initGame()
 
