@@ -17,3 +17,6 @@ export async function getRandomSafeAnime() {
   }
   return anime
 }
+
+
+console.log(getRandomSafeAnime())

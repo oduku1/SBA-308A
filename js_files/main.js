@@ -39,11 +39,11 @@ async function initGame() {
     console.log(anime1, anime2);
 
     // Anime 1
-    anime1_Img.src = anime1.images.jpg.large_image_url;
+    anime1_Img.src = anime1.images.jpg.image_url;
     anime1_rating.textContent = anime1.score;
 
     // Anime 2
-    anime2_Img.src = anime2.images.jpg.large_image_url;
+    anime2_Img.src = anime2.images.jpg.image_url;
     anime2_rating.textContent = "?";
 
     // Reset result display
