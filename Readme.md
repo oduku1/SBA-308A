@@ -1,10 +1,10 @@
-# 🎌 Anime Higher or Lower  
+# Anime Higher or Lower  
 
 A fun browser game where you guess which anime has a **higher or lower rating** based on data from the [Jikan API](https://jikan.moe/).  
 
 ---
 
-## 🎮 How to Play  
+## How to Play  
 1. Two anime are shown side by side with images.  
 2. The **left anime** displays its score, the **right anime** is hidden.  
 3. You choose whether the right anime has a **higher** 📈 or **lower** 📉 score.  
@@ -13,7 +13,7 @@ A fun browser game where you guess which anime has a **higher or lower rating** 
 
 ---
 
-## 🛠️ Features  
+## Features  
 - Fetches **random anime** from Jikan API.  
 - Skips NSFW anime for safe gameplay.  
 - Loads images dynamically.  
@@ -23,7 +23,7 @@ A fun browser game where you guess which anime has a **higher or lower rating** 
 
 ---
 
-## 🚀 Installation & Setup  
+## Installation & Setup  
 1. Clone this repository:  
    ```bash
    git clone https://github.com/your-username/anime-higher-lower.git
