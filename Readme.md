@@ -15,7 +15,7 @@ A fun browser game where you guess which anime has a **higher or lower rating** 
 
 ## 🛠️ Features  
 - Fetches **random anime** from Jikan API.  
-- Skips NSFW/ecchi anime for safe gameplay.  
+- Skips NSFW anime for safe gameplay.  
 - Loads images dynamically.  
 - Tracks **current score** and **high score**.  
 - Lightweight, pure **HTML, CSS, JavaScript** (no frameworks).  
