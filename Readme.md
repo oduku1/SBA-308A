@@ -1,6 +1,6 @@
 # 🎌 Anime Higher or Lower  
 
-A fun browser game where you guess which anime has a **higher or lower score** based on data from the [Jikan API](https://jikan.moe/).  
+A fun browser game where you guess which anime has a **higher or lower rating** based on data from the [Jikan API](https://jikan.moe/).  
 
 ---
 
